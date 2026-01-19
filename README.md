@@ -75,5 +75,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## Contact
-For questions or feedback, please contact [aryan10767@gmail.com.com].
+For questions or feedback, please contact [pgarg7_be23@thapar.edu].
 
