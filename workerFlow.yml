@@ -1,0 +1,38 @@
+name: Publish TOPSIS Package to PyPI
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # Optional: remove this line if you don't use a GitHub environment named "pypi"
+    environment: pypi
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build package
+        run: python -m build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@v1
+        with:
+          password: ${{ pypi-AgEIcHlwaS5vcmcCJDc2YTA2YzZhLWQ4MWQtNDAwNy05OThlLTZhZTU5OGUwNDZmMgACKlszLCIwNGVhMDI1Yi1kNmJiLTQxZGYtOTZkOC0yNDJlMDZjOGQ0YzYiXQAABiDOd_sUorGwEYIReyIzC5Kz_Q9L1_eMEI7nrhxtLO5T9w}}
